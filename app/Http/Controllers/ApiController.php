@@ -32,7 +32,7 @@ class ApiController extends Controller
     public function show($fileName)
     {
         $file = $this->_searchFindMatching($fileName);
-        if (!file) {
+        if (!$file) {
             return new JsonResponse(['message' => 'File not found.'], 404);
         }
         return new JsonResponse($this->_getFileInfo($file), 200);
@@ -41,7 +41,7 @@ class ApiController extends Controller
     public function destroy($fileName)
     {
         $file = $this->_searchFindMatching($fileName);
-        if (!file) {
+        if (!$file) {
             return new JsonResponse(['message' => 'File not found.'], 404);
         }
         File::delete($file);
