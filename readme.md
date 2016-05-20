@@ -44,6 +44,8 @@ My uploaded file is *dota2.jpg*
 ```
 curl -v GET http://huyhvq.app/api/dota2.jpg
 ```
+
+### Retrieve
 - Delete file endpoint: {url}/api/{filename} method DELETE
 
 ```
