@@ -10,6 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/', function () {
+    return ['app_name' => 'HuyHVQ API'];
+});
 Route::resource('api', 'ApiController', ['only' => [
     'store', 'show', 'destroy',
 ]]);
+Route::get('api/file/{name}', ['as' => 'api.file', 'uses' => 'ApiController@getFile']);

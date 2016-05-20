@@ -2,11 +2,56 @@
 
 ## How to run
 
-Please add virtual host huyhvq.app match with IP in vagrant file.
+At root project folder please run:
 
-## How to test
+```
+composer install
+```
+Then rename *.env.example* to *.env* and run:
 
-- Upload file endpoint: http://huyhvq.app/api
-make POST request with body content as file binary.
-- Retrieve file endpoint: http://huyhvq.app/api/{filename} method GET
-- Delete file endpoint: http://huyhvq.app/api/{filename} method DELETE
+```
+php artisan key:generate
+```
+
+Please make sure folder and subfolder in *storage* has write permission.
+
+## How to play with API
+
+### Upload
+{url} is your domain, example my domain is: http://huyhvq.app
+- Upload file endpoint: {url}/api
+make POST request with body content as file binary and parameter *name* as filename.
+Example:
+
+```
+curl --request POST --data-binary "@filename" --data="key=value" $URL
+```
+We can use bellow command for upload:
+
+```
+curl -v --request POST --data-binary "@dota.jpg" --data "name=dota2.jpg"  http://huyhvq.app/api
+```
+
+### Retrieve
+- Retrieve file endpoint: {url}/api/{filename} method GET
+
+```
+curl GET $URL
+```
+
+My uploaded file is *dota2.jpg*
+
+```
+curl -v GET http://huyhvq.app/api/dota2.jpg
+```
+- Delete file endpoint: {url}/api/{filename} method DELETE
+
+```
+curl -X DELETE $URL
+```
+
+My uploaded file is *dota2.jpg*
+
+```
+curl -v -X DELETE http://huyhvq.app/api/dota2.jpg
+```
