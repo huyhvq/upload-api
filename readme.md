@@ -57,3 +57,13 @@ My uploaded file is *dota2.jpg*
 ```
 curl -v -X DELETE http://huyhvq.app/api/dota2.jpg
 ```
+
+## Test
+
+Please run:
+
+```
+vendor/bin/phpunit
+```
+
+at root project folder.
